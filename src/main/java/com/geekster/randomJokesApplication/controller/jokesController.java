@@ -30,7 +30,7 @@ public class jokesController {
         jokesList.add("Don't trust atoms. They make up everything!");
         jokesList.add("Is this pool safe for diving? It deep ends.");
 
-        int randomNumber = 0 + (int)(Math.random() *((10-0)+1));
+        int randomNumber = 0 + (int)(Math.random() *((jokesList.size()-1 -0)+1));
         return jokesList.get(randomNumber);
     }
 }
