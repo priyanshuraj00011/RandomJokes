@@ -1,15 +1,23 @@
 package com.geekster.randomJokesApplication.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
 @RestController
 public class jokesController {
+    static ArrayList<String>jokesList=new ArrayList<>();
+    @PostMapping(value = "/jokes")
+    public String saveJokes(@RequestBody String jokes){
+         jokesList.add(jokes);
+         return "save jokes";
+    }
     @GetMapping(value = "/jokes")
     public String getJokes(){
-        ArrayList<String>jokesList=new ArrayList<>();
+
         jokesList.add("I'm afraid for the calendar. Its days are numbered.");
         jokesList.add("My wife said I should do lunges to stay in shape. That would be a big step forward.");
         jokesList.add("Why do fathers take an extra pair of socks when they go golfing?");
